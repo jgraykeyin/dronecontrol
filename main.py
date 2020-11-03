@@ -4,11 +4,17 @@ import tello_abridged
 t = tello_abridged.Tello()
 t.connect_and_initialize()
 
+# List of valid commands the tello will accept
+# TODO: enter all the commands into this list
+valid_commands = []
+
 # Start a loop here to start taking inputs
 while True:
     
     # First input to ask for the command.
     # TODO: Setup input validation
+    # We'll need to make sure it's one of the valid commands, ie takeoff
+    # Perhaps make a list of commands and check against that?
     user_command = input("Command: ")
 
     # We don't need to prompt user for a second value if it's taking off
