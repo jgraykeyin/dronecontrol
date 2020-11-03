@@ -15,9 +15,19 @@ while True:
     if user_command.lower() != "takeoff":
         # Second input to ask for a number value in centimeters
         # TODO: Setup input validation
+        # Validation for most commands must be between 20 and 500
+        # Validation for cw and ccw comands must be between 1 and 360
         user_cm = int(input("Centimeters: "))
         
     # Setup if statements to handle user commands.
     # Make sure we have a condition to quit the program.
+    # Commands we must support: takeoff, up, down, left, right, forward, back, cw, ccw, land
+    # 
     if user_command.lower() == "takeoff":
         t.send_command(user_command.lower())
+        
+    elif user_command.lower() == "up":
+        # Creating a new variable so we can combine user_command and user_cm into a single string
+        command = user_command.lower() + " " + str(user_cm)
+        # Then we pass that combined command to the tello
+        t.send_command(command)
