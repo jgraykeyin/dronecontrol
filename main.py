@@ -17,7 +17,7 @@ while True:
     # Perhaps make a list of commands and check against that?
     user_command = input("Command: ")
 
-    # We don't need to prompt user for a second value if it's taking off
+    # We don't need to prompt user for a second value if it's taking off or landing
     if user_command.lower() != "takeoff":
         # Second input to ask for a number value in centimeters
         # TODO: Setup input validation
@@ -29,6 +29,7 @@ while True:
     # Make sure we have a condition to quit the program.
     # Commands we must support: takeoff, up, down, left, right, forward, back, cw, ccw, land
     # 
+    # TODO: Look into issue with height & cm travelled
     if user_command.lower() == "takeoff":
         t.send_command(user_command.lower())
         
@@ -37,3 +38,8 @@ while True:
         command = user_command.lower() + " " + str(user_cm)
         # Then we pass that combined command to the tello
         t.send_command(command)
+
+    elif user_command.lower() == "down":
+        command = user_command.lower() + " " + str(user_cm)
+        t.send_command(command)
+        
