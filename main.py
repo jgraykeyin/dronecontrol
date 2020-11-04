@@ -1,3 +1,7 @@
+# Drone Control Py by Drone Team 2-1
+# Sprint Week Project #1, November 2020
+# Python program for sending user commands to the Tello Drone
+
 import tello_abridged
 
 # TODO: Track if drone is in the air or not
@@ -7,7 +11,7 @@ t = tello_abridged.Tello()
 t.connect_and_initialize()
 
 # List of valid commands the tello will accept
-# TODO: enter all the commands into this list
+# Takeoff and land are in their own list because they don't need arguments
 standard_commands = ["up","down","left","right","forward","back","cw","ccw"]
 noarg_commands = ["takeoff","land"]
 
