@@ -7,8 +7,8 @@ import tello_abridged
 # TODO: Track if drone is in the air or not
 
 #Connect to the drone
-#t = tello_abridged.Tello()
-#t.connect_and_initialize()
+t = tello_abridged.Tello()
+t.connect_and_initialize()
 
 # List of valid commands the tello will accept
 # Takeoff and land are in their own list because they don't need arguments
