@@ -7,8 +7,8 @@ import tello_abridged
 # TODO: Track if drone is in the air or not
 
 #Connect to the drone
-#t = tello_abridged.Tello()
-#t.connect_and_initialize()
+t = tello_abridged.Tello()
+t.connect_and_initialize()
 
 # List of valid commands the tello will accept
 # Takeoff and land are in their own list because they don't need arguments
@@ -49,7 +49,6 @@ while run_program:
     # We don't need to prompt user for a second value if it's taking off or landing
     if user_command.lower() not in noarg_commands:
         # Second input to ask for a number value in centimeters
-        # TODO: Setup input validation
         # Validation for most commands must be between 20 and 500
         # Validation for cw and ccw comands must be between 1 and 360
         if user_command == "cw" or user_command == "ccw":
@@ -88,8 +87,8 @@ while run_program:
     # 
     # If the command is a takeoff or landing, it will send a command without an argument
     if user_command.lower() in noarg_commands:
-        ###t.send_command(user_command.lower())
-        print(user_command.lower())
+        t.send_command(user_command.lower())
+        #print(user_command.lower())
         
         if user_command.lower() == "takeoff":
             flying = True
@@ -101,6 +100,6 @@ while run_program:
         # Creating a new variable so we can combine user_command and user_num into a single string
         command = user_command.lower() + " " + str(user_num)
         # Then we pass that combined command to the tello
-        print(command)
-        ###t.send_command(command)
+        #print(command)
+        t.send_command(command)
         flying = True
