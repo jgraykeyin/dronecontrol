@@ -52,7 +52,7 @@ while True:
         t.send_command("right {}".format(values[0]))
 
     elif event == 'Speak':
-        # Listen to what the smart device says and return the output
+        # Wait for user to speak and send it as a command
         print("Listening...")
         with mic as source:
             audio = r.listen(source,phrase_time_limit=3)
