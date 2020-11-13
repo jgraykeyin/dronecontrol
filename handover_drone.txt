@@ -1,0 +1,42 @@
+Tello Drone Control 
+
+This program is used for sending commands to the Tello Drone 
+in order perform specific function when comman is issued. 
+It can be ran by running this command in the terminal:
+python3 main.py
+
+The user is prompted for a command that will be sent to the drone
+and will then be asked for a parameter if the command requires one.
+
+The drone instrutions are as follows :
+   Commands that will prompt for a parameter of either cm or degrees:
+   up, down, left, right, forward, back, cw , ccw, flip
+   
+   Commands that do not require paramters:
+   takeoff, land
+
+You can use the program by prompting the noarg-commands and standard commands only?
+- The design of this program is to set the drone on specific commands to perform a task required by the user.
+
+These commands help you download,initial and connect to the tello drone:
+t = tello_abridged.Tello()
+t.connect_and_initialize()
+
+What about the code not in functions, what is the basic structure of that and roughly how does it work?
+- The tello drone is design to only take commands available in the program application  
+   
+Future Work:
+- I will like to see the drone perform more security functions eg taking picture on crime sence.
+- A graphic user interface (GUI) so users can interact with the drone via mouse rather than typing commands.
+   
+Are there any extensions you’d make to this program to make it better?
+- The change in the implementation I like to see is the Drone taking voice commands 
+from different user and performing the commands accurately. (voice recognication)
+   
+Anything you’d change about the implementation now that it’s finished that a future
+maintainer should know about?
+- The maintainer should always ensure to check if the drone is charged to avoid inresposiveness 
+   
+   
+
+
