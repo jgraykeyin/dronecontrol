@@ -1,6 +1,6 @@
 # Drone Control Py by Drone Team 2-1
-# Sprint Week Project #1, November 2020
-# Python program for sending user commands to the Tello Drone
+# Sprint Week Project #1 Bonus, November 2020
+# GUI Python program for sending user commands to the Tello Drone
 
 import tello_abridged
 import PySimpleGUI as sg
