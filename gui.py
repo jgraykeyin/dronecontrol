@@ -4,10 +4,16 @@
 
 import tello_abridged
 import PySimpleGUI as sg
+import speech_recognition as sr
+
 
 #Connect to the drone
 t = tello_abridged.Tello()
 t.connect_and_initialize()
+
+# Initialize the Speech Recognition for listening
+r = sr.Recognizer()
+mic = sr.Microphone(device_index=0)
 
 sg.theme("DarkAmber")
 # Create the layout for the GUI 
@@ -15,7 +21,8 @@ layout = [ [sg.Button('Takeoff',font=("Helvetica", 18),size=(10,1))],
            [sg.Button('Land',font=("Helvetica", 18),size=(10,1))],
            [sg.Text('Parameter in cm: ',font=("Helvetica", 18)), sg.InputText()],
            [sg.Button('Up',font=("Helvetica", 18),size=(10,1)),sg.Button('Down',font=("Helvetica", 18),size=(10,1))],
-           [sg.Button('Left',font=("Helvetica", 18),size=(10,1)),sg.Button('Right',font=("Helvetica", 18),size=(10,1))] ]
+           [sg.Button('Left',font=("Helvetica", 18),size=(10,1)),sg.Button('Right',font=("Helvetica", 18),size=(10,1))],
+           [sg.Button('Speak',font=("Helvetica", 18))] ]
 
 # Create the window
 window = sg.Window('Drone Control',layout)
@@ -43,4 +50,19 @@ while True:
 
     elif event == 'Right':
         t.send_command("right {}".format(values[0]))
+
+    elif event == 'Speak':
+        # Listen to what the smart device says and return the output
+        print("Listening...")
+        with mic as source:
+            audio = r.listen(source,phrase_time_limit=3)
+
+        try:
+            command = r.recognize_google(audio)
+        except sr.UnknownValueError:
+            command = "Unable to understand audio."
+        except sr.RequestError as e:
+            command = "Error {0}".format(e)
+
+        t.send_command(command)
 
