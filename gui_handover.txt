@@ -10,6 +10,8 @@ pip3 install PySimplGui or python3 -m pip install PySimpleGUi
 
 The speech recognition module can be installed using:
 pip3 install SpeechRecognition or python3 -m pip install SpeechRecognition
+&
+pip3 install PyAudio or python3 -m pip install PyAudio
 
 The program can be started by running the gui.py program:
 python3 guiy.py
