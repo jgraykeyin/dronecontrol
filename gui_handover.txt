@@ -1,0 +1,27 @@
+GUI Drone Control
+
+This program is used to send commands to the Tello Drone
+using a graphical user interface and an exterimental
+speech recognition interface. 
+
+The GUI is provided by the PySimpleGUI module which can be 
+installed with the command:
+pip3 install PySimplGui or python3 -m pip install PySimpleGUi
+
+The speech recognition module can be installed using:
+pip3 install SpeechRecognition or python3 -m pip install SpeechRecognition
+
+The program can be started by running the gui.py program:
+python3 guiy.py
+
+The GUI currently supports the main takeoff & landing commands, 
+along with left, right, up, down and it's parameters in cm. The 'Speak'
+button waits for a spoken command and attempts to send that as a command,
+though this feature is still in early exterimental development.
+
+The drone must be ready for a connection when the program is ran,
+once a connection is established the GUI window will be created.
+
+Future development will be adding CW and CCW commands along with
+their required parameters. Development of the speech processing
+must also be improved before shipping the product with this feature.
